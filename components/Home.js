@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -6,16 +7,19 @@ import {
   TouchableOpacity,
   FlatList,
 } from 'react-native';
-import React from 'react';
 import {
   responsiveHeight,
   responsiveWidth,
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import { colors } from './Colors'
+// import Colors from './Colors';
+
 import Icon from 'react-native-remix-icon';
 
 export default function Home() {
+
   const data = [
     {id: 1, name: 'Jay Kapoor', years: 32, time: 'Today , 10:00 am'},
     {id: 2, name: 'Rahsaan Howell', years: 27, time: 'Today , 11:00 am'},
@@ -60,7 +64,7 @@ export default function Home() {
           }}>
           <TouchableOpacity
             style={{
-              backgroundColor: '#FFF',
+              backgroundColor: colors.white,
               borderRadius: 100,
               height: 30,
               width: 30,
@@ -70,13 +74,13 @@ export default function Home() {
             <Icon
               name="ri-check-double-line"
               size="24"
-              color="#557DE5"
+              color={colors.primary}
               style={{marginHorizontal: 16}}
             />
           </TouchableOpacity>
           <TouchableOpacity
             style={{
-              backgroundColor: '#FFF',
+              backgroundColor: colors.white,
               borderRadius: 100,
               height: 30,
               width: 30,
@@ -86,7 +90,7 @@ export default function Home() {
             <Icon
               name="ri-close-circle-line"
               size="24"
-              color="#557DE5"
+              color={colors.primary}
               style={{marginHorizontal: 16}}
             />
           </TouchableOpacity>
@@ -232,7 +236,7 @@ export default function Home() {
                           console.log('Reschedule ===>', ele.id, ele.name)
                         }
                         style={{
-                          backgroundColor: '#FFE5B2',
+                          backgroundColor: colors.alert_bg,
                           borderRadius: 100,
                           height: 50,
                           width: 50,
@@ -242,7 +246,7 @@ export default function Home() {
                         <Icon
                           name="ri-refresh-line"
                           size="32"
-                          color="#FFC148"
+                          color={colors.alert}
                           style={{marginHorizontal: 16}}
                         />
                       </TouchableOpacity>
@@ -251,7 +255,7 @@ export default function Home() {
                           console.log('Cancel ===>', ele.id, ele.name)
                         }
                         style={{
-                          backgroundColor: '#FCD3D1',
+                          backgroundColor: colors.error_bg,
                           borderRadius: 100,
                           height: 50,
                           width: 50,
@@ -261,7 +265,7 @@ export default function Home() {
                         <Icon
                           name="ri-close-circle-line"
                           size="32"
-                          color="#FF615A"
+                          color={colors.error}
                           style={{marginHorizontal: 16}}
                         />
                       </TouchableOpacity>
@@ -286,7 +290,7 @@ const styles = StyleSheet.create({
     marginTop: responsiveHeight(2),
   },
   headerBox: {
-    backgroundColor: '#557DE5',
+    backgroundColor: colors.primary,
     width: responsiveWidth(44),
     height: responsiveHeight(20),
     borderRadius: responsiveWidth(2),
@@ -318,11 +322,11 @@ const styles = StyleSheet.create({
   upcomingViewAllText: {
     fontFamily: 'Montserrat-Medium',
     fontSize: responsiveFontSize(2),
-    color: '#557DE5',
+    color: colors.primary,
   },
   upcomingCardContainer: {
     marginTop: responsiveHeight(2),
-    backgroundColor: '#E7F0FF',
+    backgroundColor: colors.secondary,
     height: 180,
     width: 150,
     borderRadius: responsiveWidth(2),
@@ -352,12 +356,11 @@ const styles = StyleSheet.create({
   missedCardContainer: {
     marginTop: responsiveHeight(2),
     // marginBottom: responsiveHeight(2),
-    backgroundColor: '#557DE5',
+    backgroundColor: colors.primary,
     borderRadius: responsiveWidth(2),
     paddingHorizontal: responsiveWidth(4),
     paddingVertical: responsiveHeight(2),
     flexDirection: 'row',
-    // justifyContent: 'center',
     alignItems: 'center',
   },
   missedCardAvatar: {

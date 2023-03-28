@@ -17,6 +17,8 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import {colors} from './Colors';
+
 export default function Login() {
   const deviceHeight = Dimensions.get('window').height;
   const deviceWidth = Dimensions.get('window').width;
@@ -38,14 +40,14 @@ export default function Login() {
                 <Icon
                   name="ri-mail-line"
                   size="24"
-                  color="#557DE5"
+                  color={colors.primary}
                   style={{marginHorizontal: 16}}
                 />
                 <TextInput
                   placeholder="Enter your email"
                   style={styles.inputBox}
                   autoFocus={false}
-                  cursorColor="#557DE5"
+                  cursorColor={colors.primary}
                 />
               </View>
 
@@ -53,7 +55,7 @@ export default function Login() {
                 <Icon
                   name="ri-lock-line"
                   size="24"
-                  color="#557DE5"
+                  color={colors.primary}
                   style={{marginHorizontal: 16}}
                 />
                 <TextInput
@@ -61,7 +63,7 @@ export default function Login() {
                   style={styles.passwordIinputBox}
                   autoFocus={false}
                   secureTextEntry
-                  cursorColor="#557DE5"
+                  cursorColor={colors.primary}
                 />
               </View>
               <TouchableOpacity style={styles.optContainer}>
@@ -104,7 +106,7 @@ export default function Login() {
                   <Icon
                     name="ri-google-fill"
                     size="24"
-                    color="#1877F2"
+                    color={colors.primary}
                     style={{marginHorizontal: 16}}
                   />
                 </TouchableOpacity>
@@ -114,7 +116,7 @@ export default function Login() {
                   <Icon
                     name="ri-facebook-circle-fill"
                     size="24"
-                    color="#1877F2"
+                    color={colors.primary}
                     style={{marginHorizontal: 16}}
                   />
                 </TouchableOpacity>
@@ -124,52 +126,24 @@ export default function Login() {
                   <Icon
                     name="ri-apple-fill"
                     size="24"
-                    color="#000"
+                    color={colors.black}
                     style={{marginHorizontal: 16}}
                   />
                 </TouchableOpacity>
               </View>
-              <View
-                style={{
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  position: 'absolute',
-                  bottom: responsiveHeight(0.1),
-                  alignSelf: 'center',
-                }}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    marginBottom: responsiveHeight(0.5),
-                  }}>
-                  <Text
-                    style={{
-                      fontFamily: 'Montserrat-Medium',
-                      fontSize: responsiveFontSize(1.5),
-                    }}>
+              <View style={styles.tAndCmainContainer}>
+                <View style={styles.termsAndConditionContainer}>
+                  <Text style={styles.clickingYouAgreeText}>
                     By clicking you agree
                   </Text>
                   <TouchableOpacity>
-                    <Text
-                      style={{
-                        marginLeft: 5,
-                        fontFamily: 'Montserrat-Bold',
-                        fontSize: responsiveFontSize(1.5),
-                        color: '#557DE5',
-                      }}>
+                    <Text style={styles.termsAndConditionText}>
                       Terms and Conditions
                     </Text>
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity>
-                  <Text
-                    style={{
-                      fontFamily: 'Montserrat-Bold',
-                      fontSize: responsiveFontSize(1.5),
-                      color: '#557DE5',
-                    }}>
-                    & Privacy Policy
-                  </Text>
+                  <Text style={styles.privacyPolicyText}>& Privacy Policy</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -183,14 +157,14 @@ export default function Login() {
 const styles = StyleSheet.create({
   header: {
     flex: 1,
-    backgroundColor: '#557DE5',
+    backgroundColor: colors.primary,
   },
   headerText: {
     fontFamily: 'Montserrat-Bold',
     fontSize: responsiveFontSize(6),
     textAlign: 'center',
     marginVertical: responsiveHeight(6),
-    color: '#FFF',
+    color: colors.white,
   },
   footer: {
     flex: 3,
@@ -239,11 +213,11 @@ const styles = StyleSheet.create({
   },
   optText: {
     fontFamily: 'Montserrat-Medium',
-    color: '#557DE5',
+    color: colors.primary,
   },
   loginContainer: {
     marginHorizontal: responsiveWidth(6),
-    backgroundColor: '#557DE5',
+    backgroundColor: colors.primary,
     height: responsiveHeight(8),
     alignItems: 'center',
     justifyContent: 'center',
@@ -252,7 +226,7 @@ const styles = StyleSheet.create({
   },
   loginText: {
     fontFamily: 'Montserrat-Bold',
-    color: '#FFF',
+    color: colors.white,
     fontSize: responsiveFontSize(2),
   },
   otherLoginContainer: {
@@ -268,5 +242,31 @@ const styles = StyleSheet.create({
     borderRadius: responsiveWidth(2),
     borderWidth: responsiveWidth(0.5),
     borderColor: '#D2D5E0',
+  },
+  tAndCmainContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'absolute',
+    bottom: responsiveHeight(0.1),
+    alignSelf: 'center',
+  },
+  termsAndConditionContainer: {
+    flexDirection: 'row',
+    marginBottom: responsiveHeight(0.5),
+  },
+  clickingYouAgreeText: {
+    fontFamily: 'Montserrat-Medium',
+    fontSize: responsiveFontSize(1.5),
+  },
+  termsAndConditionText: {
+    marginLeft: 5,
+    fontFamily: 'Montserrat-Bold',
+    fontSize: responsiveFontSize(1.5),
+    color: colors.primary,
+  },
+  privacyPolicyText: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: responsiveFontSize(1.5),
+    color: colors.primary,
   },
 });
